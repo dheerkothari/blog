@@ -1,5 +1,16 @@
 import Post from '../Schema/post-schema.js';
 
+// const storage = multer.diskStorage({
+
+//     destination: function (req, file, cb) {
+//         cb(null, 'uploadImage')
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, new Date().toISOString() + file.originalname);
+//     }
+// })
+
+
 export const createPost = async (req, res) => {
     try {
         const post = await new Post(req.body)
@@ -15,7 +26,6 @@ export const createPost = async (req, res) => {
 export const getAllPost = async (req, res) => {
     let username = req.query.username;
     let category = req.query.category;
-    console.log(req.query.category);
     let posts;
 
     try {
@@ -23,7 +33,6 @@ export const getAllPost = async (req, res) => {
             posts = await Post.find({ username: username });
         }
         else if (category) {
-            console.log(category);
             posts = await Post.find({ categories: category });
         }
         else
@@ -69,3 +78,5 @@ export const deletePost = async (req, res) => {
         res.status(500).json(error)
     }
 }
+
+// export default storage;

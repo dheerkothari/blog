@@ -7,6 +7,7 @@ import Router from './routes/route.js'
 
 const app = express();
 
+app.use(express.static('uploadImage'))
 
 // const corsOptions = {
 //     origin: '*',
