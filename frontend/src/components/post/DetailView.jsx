@@ -4,6 +4,7 @@ import { Edit, Delete } from "@material-ui/icons";
 import { useState } from "react";
 import { useEffect } from "react";
 import { deletePost, getPost } from "../../service/api";
+import Comments from "../Comments/Comments";
 
 const useStyle = makeStyles((theme) => ({
     container: {
@@ -86,6 +87,7 @@ const DetailView = () => {
                 <Typography style={{ marginLeft: 'auto' }}>{new Date(post.createdDate).toDateString()}</Typography>
             </Box>
             <Typography>{post.description}</Typography>
+            <Comments post={post} />
         </Box>
     )
 }

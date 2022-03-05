@@ -43,9 +43,64 @@ export const updatePost = async (id, post) => {
 
 export const deletePost = async (id) => {
     try {
-        await axios.post(`${URL}/delete/${id}`)
+        return await axios.delete(`${URL}/delete/${id}`)
     }
     catch (err) {
         console.log("Error while deletePost API", err)
+    }
+}
+
+export const uploadFile = async (data) => {
+    try {
+        return await axios.post(`${URL}/file/upload`, data)
+    }
+    catch (err) {
+        console.log("Error while uploadFile API", err)
+    }
+}
+
+export const addUser = async (data) => {
+    try {
+        return await axios.post(`${URL}/adduser`, data)
+    }
+    catch (err) {
+        console.log("Error while addUser API", err)
+    }
+}
+
+export const loginUser = async (data) => {
+    try {
+        return await axios.post(`${URL}/loginuser`, data)
+    }
+    catch (err) {
+        console.log("Error while loginuser API", err)
+    }
+}
+
+export const newComment = async (data) => {
+    try {
+        return await axios.post(`${URL}/comment/new`, data)
+    }
+    catch (err) {
+        console.log("Error while newComment API", err)
+    }
+}
+
+export const getComments = async (id) => {
+    try {
+        let response = await axios.get(`${URL}/comments/${id}`)
+        return response.data;
+    }
+    catch (err) {
+        console.log("Error while getComments API", err)
+    }
+}
+
+export const deleteComment = async (id) => {
+    try {
+        return await axios.delete(`${URL}/comment/delete/${id}`)
+    }
+    catch (err) {
+        console.log("Error while deleteComment API", err)
     }
 }

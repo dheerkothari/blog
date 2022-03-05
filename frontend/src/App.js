@@ -8,6 +8,8 @@ import Home from './components/Home/Home';
 import DetailView from './components/post/DetailView';
 import CreateView from './components/post/CreateView';
 import UpdateView from './components/post/UpdateView';
+import SignUp from './components/User/SighUp';
+import SignIn from './components/User/SighIn';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route exact path='/create' element={<CreateView />} />
           <Route exact path='/update/:id' element={<UpdateView />} />
           <Route exact path='/delete/:id' element={<UpdateView />} />
+          <Route exact path='/adduser' element={<SignUp />} />
+          <Route exact path='/loginUser' element={<SignIn />} />
         </Routes>
       </Box>
     </BrowserRouter >

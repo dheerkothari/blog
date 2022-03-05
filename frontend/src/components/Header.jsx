@@ -26,7 +26,9 @@ const Header = () => {
                 <Link className={classes.link} to={'/'} >
                     <Typography>Home</Typography>
                 </Link>
-                <Typography>Login</Typography>
+                <Link className={classes.link} to={'/loginUser'} >
+                    <Typography>Login</Typography>
+                </Link>
             </Toolbar>
         </AppBar>
     )
